@@ -64,7 +64,7 @@ body {
 .welcome p {
   font-family: Helvetica;
   margin: auto;
-  padding: 0px;
+  padding: 0 0 10px 0;
   text-align: center;
 }
 .charts {
@@ -96,6 +96,7 @@ body {
   background-color: rgb(50,50,50);
   font-style: bold, underline;
   box-shadow: 5px 5px 10px rgba(0,0,0,.75);
+  cursor: pointer;
 }
 .project {
   width: 75%;
