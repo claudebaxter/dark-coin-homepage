@@ -103,6 +103,7 @@ body {
 .project {
   width: 75%;
   border: 5px solid rgb(255,255,255);
+  align-items: center;
   box-shadow: 0 0 15px 5px rgba(211,211,211,.75);
   margin: auto;
   border-radius: 20px;
@@ -143,19 +144,4 @@ a:visited {
   border: 2px solid rgba(211,211,211);
   margin: 10px;
   padding: 10px 10px 10px 10px;
-}
-.link1 {
-  float: left;
-}
-.link2 {
-  float: right;
-}
-.link3 {
-  clear: right;
-}
-.link4 {
-  clear: left;
-}
-.link5, .link6 {
-  clear: both;
 }
