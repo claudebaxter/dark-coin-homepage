@@ -158,10 +158,14 @@ a:visited {
   box-shadow: 0 0 15px 5px rgba(50,50,50,.75);
 }
 footer {
+  font-family: Arial;
+  text-transform: uppercase;
+  text-decoration: bold;
   display: inline-block;
   width: 100%;
   text-align: center;
   margin: 10px auto;
-  border-top: 2.5px dotted rgb(255,255,255);
+  border-top: 1.5px dotted rgb(255,255,255);
   border-bottom: 7.5px solid rgb(255,255,255);
+  border-radius: 20px;
 }
