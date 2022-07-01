@@ -117,6 +117,7 @@ body {
   margin: auto;
   border-radius: 20px;
   text-align: center;
+  padding-bottom: 15px;
 }
 .project h2 {
   font-family: arial;
@@ -132,7 +133,7 @@ body {
   font-size: 1.25em;
   margin: auto;
   text-align: left;
-  padding: 5px 10px 20px 10px;
+  padding: 5px 20px 20px 20px;
 }
 a:link {
   color: white;
@@ -164,6 +165,12 @@ a:visited {
   color: pink;
   text-decoration: bold;
   box-shadow: 0 0 15px 5px rgba(50,50,50,.75);
+}
+.triangleb {
+  background-color: white;
+  height: 10em;
+  align-content: center;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 footer {
   font-family: Arial;
