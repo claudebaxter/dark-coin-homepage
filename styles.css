@@ -102,14 +102,37 @@ body {
   margin: 5px auto 5px auto;
   padding: 10px;
 }
-.charts button:hover, .vote button:hover {
+.proposal input {
+  width: 85%;
+  height: 8vh;
+  background: url('assets/svg/search-solid.svg');
+  background-repeat: no-repeat;
+  background-size: 2.5vh;
+  background-position: 1vh;
+  background-color: white;
+  padding-left: 3em;
+}
+.proposal button {
+  display: inline-block;
+  background-color: rgb(75,75,75);
+  border-radius: 15px;
+  border: 5px rgb(255,255,255);
+  box-shadow: 5px 5px 10px rgba(255,255,255,.75);
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  margin: 5px auto 5px auto;
+  padding: 10px;
+}
+.charts button:hover, .vote button:hover, .proposal button:hover {
   border: 5px rgb(255,255,255);
   background-color: rgb(50,50,50);
   font-style: bold, underline;
   box-shadow: 5px 5px 10px rgba(0,0,0,.75);
   cursor: pointer;
 }
-.project {
+.project, .proposal {
   width: 75%;
   border: 5px solid rgb(255,255,255);
   align-items: center;
@@ -119,7 +142,7 @@ body {
   text-align: center;
   padding-bottom: 15px;
 }
-.project h2 {
+.project h2, .proposal h2 {
   font-family: arial;
   font-size: 1.5em;
   text-align: center;
@@ -128,7 +151,7 @@ body {
   border-bottom: 3px dotted rgb(255,255,255);
   padding-bottom: 3px;
 }
-.project p {
+.project p, .proposal p {
   font-family: Helvetica;
   font-size: 1.25em;
   margin: auto;
