@@ -105,7 +105,6 @@ body {
 .proposal input {
   width: 85%;
   height: 8vh;
-  background: url('assets/svg/search-solid.svg');
   background-repeat: no-repeat;
   background-size: 2.5vh;
   background-position: 1vh;
