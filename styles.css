@@ -75,7 +75,7 @@ body {
   font-family: Helvetica;
   font-size: 1.35em;
   margin: auto;
-  padding: 0 0 10px 0;
+  padding: 5px 20px 20px 20px;
   text-align: center;
 }
 .charts, .vote {
@@ -121,7 +121,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-size: 1.5em;
-  margin: 5px auto 5px auto;
+  margin: 15px auto 15px auto;
   padding: 10px;
 }
 .charts button:hover, .vote button:hover, .proposal button:hover {
@@ -156,6 +156,10 @@ body {
   margin: auto;
   text-align: left;
   padding: 5px 20px 20px 20px;
+}
+.proposal p {
+  border-top: 3px dotted rgb(255,255,255);
+  border-bottom: 3px dotted rgb(255,255,255);
 }
 a:link {
   color: white;
