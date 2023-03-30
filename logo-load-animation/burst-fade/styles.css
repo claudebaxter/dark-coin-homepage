@@ -1,0 +1,61 @@
+body {
+  background-color: black;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid white;
+  position: relative;
+  background-image: url('./icon.png');
+  background-size: 102%;
+  background-position: center;
+  animation: burst 4s linear infinite;
+}
+
+.circle::before,
+.circle::after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0;
+  z-index: -1;
+}
+
+.circle::before {
+  top: 0;
+  left: 0;
+  animation: burst 4s linear infinite;
+  z-index: -2; /* Set a lower z-index to make it appear behind the icon */
+}
+
+.circle::after {
+  bottom: 0;
+  right: 0;
+  animation: burst 4s linear infinite;
+}
+
+@keyframes burst {
+  0% {
+    transform: scale(0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0.95;
+  }
+}
