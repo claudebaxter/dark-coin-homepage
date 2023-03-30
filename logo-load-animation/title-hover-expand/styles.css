@@ -1,0 +1,32 @@
+#logo {
+  display: block;
+  width: auto;
+}
+span {
+  font-size: 25px;
+  font-weight: bold;
+  overflow: hidden;
+  display: block;
+  float: left;
+  margin-right: 1px;
+  width: auto;
+  -webkit-transition: width 1s; /* Safari */
+  transition: width 1s;
+}
+.span-1 {
+   width: 19px; 
+}
+.span-2 {
+  width: 17px;
+}
+a {
+  text-decoration: none;
+  color: #000;
+  
+}
+a:hover span.span-1 {
+  width: 60px;
+}
+a:hover span.span-2 {
+  width: 80px;
+}
