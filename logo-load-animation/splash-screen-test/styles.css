@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.splash-screen {
+  width: 100vh;
+  height: 100vh;
+  background-color: #1c1c1c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  background-color: #1c1c1c;
+  background-image: url('./icon.png');
+  background-size: 103%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

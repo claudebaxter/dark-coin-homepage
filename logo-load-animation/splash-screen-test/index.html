@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="splash-screen">
+    <div class="logo"></div>
+  </div>
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        document.querySelector('.splash-screen').style.display = 'none';
+      }, 6000); // Change the value to adjust how long the splash screen is displayed
+    }
+  </script>
+</body>
+</html>
