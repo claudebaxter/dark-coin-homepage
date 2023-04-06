@@ -1,7 +1,20 @@
-<link rel="stylesheet" type="text/css" href="styles.css">
-<title>Logo Animation Test</title>
-<div class="loader">
-  <div class="icon1"></div>
-  <div class="icon2"></div>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Logo Animation Test</title>
+</head>
+<body>
+  <div class="loader">
+    <div class="icon1"></div>
+    <div id="icon2" class="icon2"></div>
+  </div>
 
+  <script>
+    const icon2 = document.querySelector('#icon2');
+    icon2.addEventListener('animationend', () => {
+      icon2.classList.add('pulse');
+    });
+  </script>
+</body>
+</html>
