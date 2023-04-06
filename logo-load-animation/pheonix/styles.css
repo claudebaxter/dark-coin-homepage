@@ -45,9 +45,13 @@ body {
     top: 30%;
     opacity: 1;
   }
-  90% {
+  40% {
     top: 70%;
-    opacity: 1;
+    opacity: 0.5;
+  }
+  60% {
+    top: 70%;
+    opacity: 0;
   }
   100% {
     top: 70%;
@@ -60,9 +64,13 @@ body {
     top: 70%;
     opacity: 0;
   }
-  10% {
+  40% {
     top: 70%;
-    opacity: 1;
+    opacity: 0;
+  }
+  50% {
+    top: 70%;
+    opacity: 0.5;
   }
   100% {
     top: 30%;
