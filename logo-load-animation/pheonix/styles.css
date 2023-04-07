@@ -1,5 +1,5 @@
 body {
-  background-color: #00b140;
+  background-color: black; /*#00b140;*/
   overflow: hidden;
 }
 
@@ -71,11 +71,11 @@ body {
   }
   30% {
     top: 70%;
-    opacity: 0.5;
+    opacity: 0.95;
   }
   50% {
     top: 70%;
-    opacity: 0;
+    opacity: 0.5;
   }
   100% {
     top: 70%;
@@ -94,10 +94,22 @@ body {
   }
   50% {
     top: 70%;
-    opacity: 0.5;
+    opacity: 0.95;
   }
   100% {
     top: 30%;
     opacity: 1;
   }
 }
+
+@keyframes animateFrames {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: calc(100% + 1px) 0;
+  }
+}
+
+
+
