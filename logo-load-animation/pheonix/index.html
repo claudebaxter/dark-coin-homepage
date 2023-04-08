@@ -12,6 +12,7 @@
   </div>
 
   <script>
+
     const icon2 = document.querySelector('#icon2');
     icon2.addEventListener('animationend', () => {
       icon2.classList.add('pulse');
@@ -24,10 +25,10 @@
     this.image.src = imageSrc;
     this.scale = scale;
     this.framesMax = framesMax;
-    //this.framesCurrent = 0;
-    //this.framesElapsed = 0;
-    //this.framesHold = 5;
-    //this.offset = offset;
+    this.framesCurrent = 0;
+    this.framesElapsed = 0;
+    this.framesHold = 5;
+    this.offset = offset;
     this.element = document.createElement('div');
     this.element.style.position = 'absolute';
     this.element.style.backgroundImage = `url('${imageSrc}')`;
@@ -41,7 +42,7 @@
     document.body.appendChild(this.element);
   }
 
-  /*animateFrames() {
+  animateFrames() {
     this.framesElapsed++;
 
     if (this.framesElapsed % this.framesHold === 0) {
@@ -54,7 +55,7 @@
 
     const frameOffset = -(this.framesCurrent * (this.image.width / this.framesMax));
     this.element.style.backgroundPosition = `${frameOffset}px 0`;
-  }*/
+  }
 }
 
 const fireLeft = new Sprite({
