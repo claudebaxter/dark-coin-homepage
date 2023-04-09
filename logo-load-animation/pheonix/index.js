@@ -70,6 +70,30 @@ position: {
     scale: 10
   });
 
+  const fireLeft = new Sprite({
+    height: 100,
+    width: 100,
+    position: {
+        x: this.canvas.width / 2 - 210.5,
+        y: this.canvas.height - 400
+    },
+        imageSrc: "./sprites/burning_loop_1.png",
+        framesMax: 8,
+        scale: 10
+   });
+
+   const fireRight = new Sprite({
+    height: 100,
+    width: 100,
+    position: {
+        x: this.canvas.width / 2 - 0.5,
+        y: this.canvas.height - 400
+    },
+        imageSrc: "./sprites/burning_loop_1.png",
+        framesMax: 8,
+        scale: 10
+      });
+    
 
   const icon1 = new Sprite({
 height: 100,
@@ -114,6 +138,8 @@ opacity: 0
     icon1.update();
     icon2.update();
     fire.update();
+    fireLeft.update();
+    fireRight.update();
   }
 
 //when setTimeout timer triggers at 5 seconds, browser automatically passes value to callback function
