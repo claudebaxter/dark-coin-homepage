@@ -154,6 +154,7 @@ opacity: 0
     let ratio = progress / durationOne;
     let yOffset = startOffsetOne - ratio * (startOffsetOne - endOffsetOne);
     icon1.position.y = canvas.height - yOffset;
+    icon1.opacity = 1 - ratio; //fade out
 
     if (progress < durationOne) {
     window.requestAnimationFrame(moveIcon1);
@@ -168,18 +169,20 @@ opacity: 0
     console.log('timestamp2', timestamp);
     }
 
-    icon2.opacity = 1;
     let progress = timestamp - startTime; //calculates time from startTime
     let ratio = progress / durationTwo;
     console.log('ratio2', ratio);
     let yOffset = startOffsetTwo + ratio * (startOffsetTwo - endOffsetTwo);
     console.log('yOffset2', yOffset);
+    icon2.opacity = ratio;
 
     icon2.position.y = canvas.height + yOffset;
     console.log('position2', icon2.position.y);
 
     if (progress < durationTwo) {
     window.requestAnimationFrame(moveIcon2);
+    } else {
+        icon2.opacity = 1;
     }
   }
 
