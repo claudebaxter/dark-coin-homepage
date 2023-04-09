@@ -1,100 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <title>Logo Animation Test</title>
-</head>
-<body>
-  <div class="loader">
-    <div class="icon1"></div>
-    <div id="icon2" class="icon2"></div>
-    <div id="fire" class="fire"></div>
-  </div>
+  <head>
+    <title>Logo Animation Test</title>
+  </head>
+  <body>
+    <div class="loader">
+      <canvas id="canvas"></canvas>
+    </div>
 
-  <script>
+    <audio id="backgroundMusic" src="./audio.mp3"></audio>
 
-    const icon2 = document.querySelector('#icon2');
-    icon2.addEventListener('animationend', () => {
-      icon2.classList.add('pulse');
-    });
-	
-	//may add canvas later, commented code will be useful at this point.
-    class Sprite {
-  constructor({ imageSrc, scale = 1, framesMax = 1, offset = { x: 0, y: 0 }, top, left }) {
-    this.image = new Image();
-    this.image.src = imageSrc;
-    this.scale = scale;
-    this.framesMax = framesMax;
-    this.framesCurrent = 0;
-    this.framesElapsed = 0;
-    this.framesHold = 5;
-    this.offset = offset;
-    this.element = document.createElement('div');
-    this.element.style.position = 'absolute';
-    this.element.style.backgroundImage = `url('${imageSrc}')`;
-    this.element.style.backgroundSize = `${48 * this.scale}px ${96 * this.scale}px`;
-    this.element.style.width = `200px`;
-    this.element.style.height = `200px`;
-    this.element.style.left = left;
-    this.element.style.top = top;
-    this.element.style.animation = `animateFrames ${this.framesMax * 0.125}s infinite steps(${this.framesMax - 1})`;
-
-    document.body.appendChild(this.element);
-  }
-
-  animateFrames() {
-    this.framesElapsed++;
-
-    if (this.framesElapsed % this.framesHold === 0) {
-      if (this.framesCurrent < this.framesMax - 1) {
-        this.framesCurrent++;
-      } else {
-        this.framesCurrent = 0;
-      }
-    }
-
-    const frameOffset = -(this.framesCurrent * (this.image.width / this.framesMax));
-    this.element.style.backgroundPosition = `${frameOffset}px 0`;
-  }
-}
-
-const fireLeft = new Sprite({
-  imageSrc: './fire.png',
-  framesMax: 4,
-  scale: 17.5,
-  top: `70%`,
-  left: `30.5%`
-});
-
-const fireRight = new Sprite({
-  imageSrc: './fire.png',
-  framesMax: 4,
-  scale: 17.5,
-  top: `70%`,
-  left: `56%`
-});
-
-const fire = new Sprite({
-  imageSrc: './fire.png',
-  framesMax: 4,
-  scale: 17.5,
-  top: `70%`,
-  left: `43.5%`
-});
-
-
-function animate() {
-  window.requestAnimationFrame(animate);
-  fire.animateFrames();
-  fireLeft.animateFrames();
-  fireRight.animateFrames();
-}
-
-animate();
-
-
-  </script>
-</body>
-</html>
-
-
+    <script src="./index.js"></script>
+	</body>
+</html
