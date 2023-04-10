@@ -59,14 +59,14 @@ fire.changeImageSrc("./sprites/burning_loop_2.png");*/
 
 changeImageSrc(newImageSrc) {
     gsap.to(this, {
-      duration: 0.1,
-      ease: "slow(0.5, 0.8, true)",
-      opacity: 0.25,
+      duration: 0.3,
+      ease: "slow(0.7, 0.7, false)",
+      opacity: 0.5,
       onComplete: () => {
         this.image.src = newImageSrc;
         gsap.to(this, {
-          duration: 0.1,
-          ease: "slow(0.5, 0.8, true)",
+          duration: 0.4,
+          ease: "slow(0.7, 0.7, false)",
           opacity: 1,
           onUpdate: () => {
             this.draw();
