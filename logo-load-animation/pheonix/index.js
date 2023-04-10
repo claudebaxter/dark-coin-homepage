@@ -53,6 +53,24 @@ document.body.addEventListener("click", function () {
   }
 }
 
+/*
+ Example usage of the changeImageSrc() method:
+fire.changeImageSrc("./sprites/burning_loop_2.png");*/
+
+changeImageSrc(newImageSrc) {
+    gsap.to(this.image, {
+      duration: 0.5,
+      opacity: 0,
+      onComplete: () => {
+        this.image.src = newImageSrc;
+        gsap.to(this.image, {
+          duration: 0.5,
+          opacity: 1
+        });
+      }
+    });
+  }
+
 update() {
   this.draw()
   this.animateFrames()
