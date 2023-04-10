@@ -296,12 +296,13 @@ opacity: 0
 
   setTimeout(() => {
     window.requestAnimationFrame(moveIcon2);
-    fire.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
-    fireLeftMain.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
-    fireRightMain.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
+    
     fireLeft.changeImageSrc("./sprites/purple/loops/burning_loop_2.png")
     fireRight.changeImageSrc("./sprites/purple/loops/burning_loop_3.png")
     fireMid.changeImageSrc("./sprites/purple/loops/burning_loop_4.png")
+    fire.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
+    fireLeftMain.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
+    fireRightMain.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
   }, 26000)
 
   animate();
