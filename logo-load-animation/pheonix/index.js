@@ -70,7 +70,31 @@ position: {
     scale: 10
   });
 
+  const fireMid = new Sprite({
+    height: 100,
+    width: 100,
+    position: {
+        x: this.canvas.width / 2 - 57.5,
+        y: this.canvas.height - 365
+    },
+        imageSrc: "./sprites/burning_loop_4.png",
+        framesMax: 6,
+        scale: 10
+      });
+
   const fireLeft = new Sprite({
+    height: 100,
+    width: 100,
+    position: {
+        x: this.canvas.width / 2 - 150.5,
+        y: this.canvas.height - 385
+    },
+        imageSrc: "./sprites/burning_loop_2.png",
+        framesMax: 8,
+        scale: 10
+   });
+
+   const fireLeftMain = new Sprite({
     height: 100,
     width: 100,
     position: {
@@ -86,13 +110,25 @@ position: {
     height: 100,
     width: 100,
     position: {
-        x: this.canvas.width / 2 - 0.5,
-        y: this.canvas.height - 400
+        x: this.canvas.width / 2 - 25.5,
+        y: this.canvas.height - 385
     },
-        imageSrc: "./sprites/burning_loop_1.png",
-        framesMax: 8,
+        imageSrc: "./sprites/burning_loop_3.png",
+        framesMax: 6,
         scale: 10
       });
+
+    const fireRightMain = new Sprite({
+        height: 100,
+        width: 100,
+        position: {
+            x: this.canvas.width / 2 - 0.5,
+            y: this.canvas.height - 400
+        },
+            imageSrc: "./sprites/burning_loop_1.png",
+            framesMax: 8,
+            scale: 10
+          });
     
 
   const icon1 = new Sprite({
@@ -122,24 +158,70 @@ opacity: 0
   });
 
   let startTime;
+  let startTimeA;
   let durationOne = 17000; // icon1 animation length
   let durationTwo = 40000; // icon2 animation length
   let startOffsetOne = 599; //this.canvas.height - 155; // y-axis distance between icon1 and icon2 at start
   let endOffsetOne = 215; // y-axis animation ending position.
   let startOffsetTwo = 90; // y-axis distance between icon2 and icon1 at start
   let endOffsetTwo = 649; // y-axis animation ending position for icon2
+  let pulseStarted = false; //flip to true after time delay has passed
+  const pulseDelay = 40000; //ms to delay pulse animation for
+  const pulseDuration = 1000; //duration of pulse in ms
 
   console.log('canvas', this.canvas.height);
 
-  function animate() {
+  function drawPulsingCircle(ctx, x, y, radius, minOpacity, maxOpacity, duration) {
+    let start = null;
+    let opacity = minOpacity;
+  
+    function animatePulse(timestamp) {
+      if (!start) start = timestamp;
+      let progress = timestamp - start;
+  
+      // Calculate opacity based on progress and duration
+      opacity = minOpacity + (maxOpacity - minOpacity) * (progress % duration) / duration;
+  
+      // Calculate radius based on opacity
+      let adjustedRadius = radius * opacity / maxOpacity;
+  
+      // Draw circle
+      ctx.beginPath();
+      ctx.arc(x, y, adjustedRadius, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+      ctx.fill();
+  
+      // Request next pulse animation frame
+      requestAnimationFrame(animatePulse);
+    }
+  
+    // Start pulse animation loop
+    requestAnimationFrame(animatePulse);
+  }
+
+  function animate(timestamp) {
+    if (!startTimeA) startTimeA = timestamp;
+    let progress = timestamp - startTimeA;
+
     window.requestAnimationFrame(animate);
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Check if pulse should start
+    if (progress >= pulseDelay && !pulseStarted) {
+        pulseStarted = true;
+        console.log('start pulse');
+        drawPulsingCircle(ctx, canvas.width/2 + 15, canvas.height/2 - 30, 75, 0.2, 1.0, pulseDuration);
+    }
+
+    fireLeft.update();
+    fireRight.update();
+    fireMid.update();
     icon1.update();
     icon2.update();
     fire.update();
-    fireLeft.update();
-    fireRight.update();
+    fireLeftMain.update();
+    fireRightMain.update();
   }
 
 //when setTimeout timer triggers at 5 seconds, browser automatically passes value to callback function
@@ -171,20 +253,17 @@ opacity: 0
 
     let progress = timestamp - startTime; //calculates time from startTime
     let ratio = progress / durationTwo;
-    console.log('ratio2', ratio);
     let yOffset = startOffsetTwo + ratio * (startOffsetTwo - endOffsetTwo);
-    console.log('yOffset2', yOffset);
     icon2.opacity = ratio;
 
     icon2.position.y = canvas.height + yOffset;
-    console.log('position2', icon2.position.y);
 
     if (progress < durationTwo) {
     window.requestAnimationFrame(moveIcon2);
     } else {
         icon2.opacity = 1;
     }
-  }
+  }  
 
   setTimeout(() => {
      window.requestAnimationFrame(moveIcon1);
