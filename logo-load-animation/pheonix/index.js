@@ -58,18 +58,25 @@ document.body.addEventListener("click", function () {
 fire.changeImageSrc("./sprites/burning_loop_2.png");*/
 
 changeImageSrc(newImageSrc) {
-    gsap.to(this.image, {
-      duration: 0.5,
-      opacity: 0,
+    gsap.to(this, {
+      duration: 0.1,
+      ease: "slow(0.5, 0.8, true)",
+      opacity: 0.25,
       onComplete: () => {
         this.image.src = newImageSrc;
-        gsap.to(this.image, {
-          duration: 0.5,
-          opacity: 1
+        gsap.to(this, {
+          duration: 0.1,
+          ease: "slow(0.5, 0.8, true)",
+          opacity: 1,
+          onUpdate: () => {
+            this.draw();
+          }
         });
       }
     });
   }
+  
+
 
 update() {
   this.draw()
@@ -83,7 +90,7 @@ position: {
     x: this.canvas.width / 2 - 107.5,
     y: this.canvas.height - 400
 },
-    imageSrc: "./sprites/burning_loop_1.png",
+    imageSrc: "./sprites/orange/loops/burning_loop_1.png",
     framesMax: 8,
     scale: 10
   });
@@ -95,7 +102,7 @@ position: {
         x: this.canvas.width / 2 - 57.5,
         y: this.canvas.height - 365
     },
-        imageSrc: "./sprites/burning_loop_4.png",
+        imageSrc: "./sprites/orange/loops/burning_loop_4.png",
         framesMax: 6,
         scale: 10
       });
@@ -107,7 +114,7 @@ position: {
         x: this.canvas.width / 2 - 150.5,
         y: this.canvas.height - 385
     },
-        imageSrc: "./sprites/burning_loop_2.png",
+        imageSrc: "./sprites/orange/loops/burning_loop_2.png",
         framesMax: 8,
         scale: 10
    });
@@ -119,7 +126,7 @@ position: {
         x: this.canvas.width / 2 - 210.5,
         y: this.canvas.height - 400
     },
-        imageSrc: "./sprites/burning_loop_1.png",
+        imageSrc: "./sprites/orange/loops/burning_loop_1.png",
         framesMax: 8,
         scale: 10
    });
@@ -131,7 +138,7 @@ position: {
         x: this.canvas.width / 2 - 25.5,
         y: this.canvas.height - 385
     },
-        imageSrc: "./sprites/burning_loop_3.png",
+        imageSrc: "./sprites/orange/loops/burning_loop_3.png",
         framesMax: 6,
         scale: 10
       });
@@ -143,7 +150,7 @@ position: {
             x: this.canvas.width / 2 - 0.5,
             y: this.canvas.height - 400
         },
-            imageSrc: "./sprites/burning_loop_1.png",
+            imageSrc: "./sprites/orange/loops/burning_loop_1.png",
             framesMax: 8,
             scale: 10
           });
@@ -189,7 +196,7 @@ opacity: 0
 
   console.log('canvas', this.canvas.height);
 
-  function drawPulsingCircle(ctx, x, y, radius, minOpacity, maxOpacity, duration) {
+  /*function drawPulsingCircle(ctx, x, y, radius, minOpacity, maxOpacity, duration) {
     let start = null;
     let opacity = minOpacity;
   
@@ -215,7 +222,7 @@ opacity: 0
   
     // Start pulse animation loop
     requestAnimationFrame(animatePulse);
-  }
+  }*/
 
   function animate(timestamp) {
     if (!startTimeA) startTimeA = timestamp;
@@ -225,12 +232,12 @@ opacity: 0
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Check if pulse should start
+    /*// Check if pulse should start
     if (progress >= pulseDelay && !pulseStarted) {
         pulseStarted = true;
         console.log('start pulse');
         drawPulsingCircle(ctx, canvas.width/2 + 15, canvas.height/2 - 30, 75, 0.2, 1.0, pulseDuration);
-    }
+    }*/
 
     fireLeft.update();
     fireRight.update();
@@ -289,6 +296,12 @@ opacity: 0
 
   setTimeout(() => {
     window.requestAnimationFrame(moveIcon2);
+    fire.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
+    fireLeftMain.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
+    fireRightMain.changeImageSrc("./sprites/white/loops/burning_loop_1.png")
+    fireLeft.changeImageSrc("./sprites/purple/loops/burning_loop_2.png")
+    fireRight.changeImageSrc("./sprites/purple/loops/burning_loop_3.png")
+    fireMid.changeImageSrc("./sprites/purple/loops/burning_loop_4.png")
   }, 26000)
 
   animate();
