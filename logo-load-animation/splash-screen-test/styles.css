@@ -28,9 +28,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   animation-name: pulse;
-  animation-duration: 2s;
+  animation-duration: 4s;
   animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 @keyframes pulse {
